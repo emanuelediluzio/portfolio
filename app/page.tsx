@@ -5,6 +5,7 @@ import Particles from "./components/particles";
 const navigation = [
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
+  { name: "CV", href: "/cv" },
 ];
 
 export default function Home(): JSX.Element {
