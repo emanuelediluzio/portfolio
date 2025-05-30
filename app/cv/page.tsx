@@ -11,9 +11,8 @@ export default function CVPage() {
         <h2 className="text-lg text-zinc-200 mb-6">Computer Engineering and Artificial Intelligence Student</h2>
         <div className="flex flex-wrap gap-4 mb-8 text-zinc-100">
           <div className="flex items-center gap-2"><Phone size={18} className="text-zinc-300"/> <span>+39 388-407-5575</span></div>
-          <div className="flex items-center gap-2"><Mail size={18} className="text-zinc-300"/> <a href="mailto:emanuelediluzio0@gmail.com" className="hover:underline text-blue-300 hover:text-white transition">emanuelediluzio0@gmail.com</a></div>
+          <div className="flex items-center gap-2"><Linkedin size={18} className="text-zinc-300"/> <a href="https://www.linkedin.com/in/emanuele-di-luzio-658752184/" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-300 hover:text-white transition">@linkedin.com/in/emanuele-di-luzio-658752184</a></div>
           <div className="flex items-center gap-2"><Github size={18} className="text-zinc-300"/> <a href="https://github.com/emanuelediluzio" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-300 hover:text-white transition">github.com/emanuelediluzio</a></div>
-          <div className="flex items-center gap-2"><Linkedin size={18} className="text-zinc-300"/> <a href="https://linkedin.com/in/emanuele-di-luzio-658752184" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-300 hover:text-white transition">LinkedIn</a></div>
         </div>
 
         {/* Academic Background */}
