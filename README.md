@@ -1,3 +1,15 @@
+# Il mio sito personale
+
+Questo è il mio sito personale, un portfolio che mostra i miei progetti e le mie competenze.
+
+## Tecnologie utilizzate
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Contentlayer
+- Vercel (deployment)
+
 <div align="center">
     <a href="https://chronark.com"><h1 align="center">chronark.com</h1></a>
 
