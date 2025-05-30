@@ -27,19 +27,10 @@ export default async function ProjectsPage() {
 
   const mainProjects = [featured, top2, top3].filter(Boolean);
 
-  const sorted = allProjects
-    .filter((p) => p.published)
-    .filter((project) => !mainProjects.includes(project))
-    .sort(
-      (a, b) =>
-        new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
-    );
-
-  if (mainProjects.length === 0 && sorted.length === 0) {
+  if (mainProjects.length === 0) {
     return (
       <div className="text-red-500 p-8">
-        Nessun progetto pubblicato trovato.
+        Nessun progetto principale trovato.
       </div>
     );
   }
@@ -53,94 +44,49 @@ export default async function ProjectsPage() {
             Progetti
           </h2>
           <p className="mt-4 text-zinc-400">
-            Alcuni dei progetti su cui ho lavorato.
+            I miei progetti principali.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        {/* Progetti principali in evidenza */}
-        {mainProjects.length > 0 && (
-          <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
-            {mainProjects.map((project) => (
-              project ? (
-                <Card key={project.slug}>
-                  <Article views={views[project.slug] ?? 0} />
-                  <Link href={`/projects/${project.slug}`}>
-                    <article className="relative w-full h-full p-4 md:p-8">
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="text-xs text-zinc-100">
-                          {project.date ? (
-                            <time dateTime={new Date(project.date).toISOString()}>
-                              {Intl.DateTimeFormat(undefined, {
-                                dateStyle: "medium",
-                              }).format(new Date(project.date))}
-                            </time>
-                          ) : (
-                            <span>SOON</span>
-                          )}
-                        </div>
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-3 ">
+          {mainProjects.map((project) => (
+            project ? (
+              <Card key={project.slug}>
+                <Article views={views[project.slug] ?? 0} />
+                <Link href={`/projects/${project.slug}`}>
+                  <article className="relative w-full h-full p-4 md:p-8">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="text-xs text-zinc-100">
+                        {project.date ? (
+                          <time dateTime={new Date(project.date).toISOString()}>
+                            {Intl.DateTimeFormat(undefined, {
+                              dateStyle: "medium",
+                            }).format(new Date(project.date))}
+                          </time>
+                        ) : (
+                          <span>SOON</span>
+                        )}
                       </div>
-                      <h2
-                        id="featured-post"
-                        className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
-                      >
-                        {project.title}
-                      </h2>
-                      <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                        {project.description}
-                      </p>
-                      <div className="absolute bottom-4 md:bottom-8">
-                        <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                          Leggi di più <span aria-hidden="true">&rarr;</span>
-                        </p>
-                      </div>
-                    </article>
-                  </Link>
-                </Card>
-              ) : null
-            ))}
-          </div>
-        )}
-
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
-
-        {/* Altri progetti pubblicati */}
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
-          {sorted.map((project) => (
-            <Card key={project.slug}>
-              <Article views={views[project.slug] ?? 0} />
-              <Link href={`/projects/${project.slug}`}>
-                <article className="relative w-full h-full p-4 md:p-8">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="text-xs text-zinc-100">
-                      {project.date ? (
-                        <time dateTime={new Date(project.date).toISOString()}>
-                          {Intl.DateTimeFormat(undefined, {
-                            dateStyle: "medium",
-                          }).format(new Date(project.date))}
-                        </time>
-                      ) : (
-                        <span>SOON</span>
-                      )}
                     </div>
-                  </div>
-                  <h2
-                    id="featured-post"
-                    className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
-                  >
-                    {project.title}
-                  </h2>
-                  <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                    {project.description}
-                  </p>
-                  <div className="absolute bottom-4 md:bottom-8">
-                    <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                      Leggi di più <span aria-hidden="true">&rarr;</span>
+                    <h2
+                      id="featured-post"
+                      className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                    >
+                      {project.title}
+                    </h2>
+                    <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                      {project.description}
                     </p>
-                  </div>
-                </article>
-              </Link>
-            </Card>
+                    <div className="absolute bottom-4 md:bottom-8">
+                      <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+                        Leggi di più <span aria-hidden="true">&rarr;</span>
+                      </p>
+                    </div>
+                  </article>
+                </Link>
+              </Card>
+            ) : null
           ))}
         </div>
       </div>
