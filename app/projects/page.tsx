@@ -21,9 +21,18 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "cv")!;
-  const top2 = allProjects.find((project) => project.slug === "distributed-coordination")!;
-  const top3 = allProjects.find((project) => project.slug === "emerging-technologies")!;
+  const featured = allProjects.find((project) => project.slug === "cv");
+  const top2 = allProjects.find((project) => project.slug === "distributed-coordination");
+  const top3 = allProjects.find((project) => project.slug === "emerging-technologies");
+
+  if (!featured || !top2 || !top3) {
+    return (
+      <div className="text-red-500 p-8">
+        Alcuni progetti principali non sono stati trovati. Controlla che i file MDX esistano e siano pubblicati.
+      </div>
+    );
+  }
+
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
