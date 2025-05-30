@@ -15,9 +15,9 @@ type Social = {
 const socials: Social[] = [
 	{
 		icon: <Instagram size={20} />,
-		href: "https://instagram.com/emanuelediluzio",
+		href: "https://instagram.com/emanuelediluzi0",
 		label: "Instagram",
-		handle: "@emanuelediluzio",
+		handle: "@emanuelediluzi0",
 	},
 	{
 		icon: <Mail size={20} />,
