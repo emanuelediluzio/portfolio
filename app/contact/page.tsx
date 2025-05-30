@@ -1,22 +1,23 @@
 "use client";
-import { Github, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
+import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { Instagram, Mail, Github } from "lucide-react";
 
-interface Social {
-	icon: JSX.Element;
+type Social = {
+	icon: React.ReactNode;
 	href: string;
 	label: string;
 	handle: string;
-}
+};
 
 const socials: Social[] = [
 	{
-		icon: <Twitter size={20} />,
-		href: "https://twitter.com/emanuelediluzi0",
-		label: "Twitter",
-		handle: "@emanuelediluzi0",
+		icon: <Instagram size={20} />,
+		href: "https://instagram.com/emanuelediluzio",
+		label: "Instagram",
+		handle: "@emanuelediluzio",
 	},
 	{
 		icon: <Mail size={20} />,
@@ -53,7 +54,7 @@ export default function Contact(): JSX.Element {
 									{s.icon}
 								</span>{" "}
 								<div className="z-10 flex flex-col items-center">
-									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display">
+									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display break-all text-center">
 										{s.handle}
 									</span>
 									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
