@@ -9,21 +9,21 @@ const projects = [
     title: "CV Project",
     description: "Un progetto per la gestione e visualizzazione del curriculum vitae",
     date: "2024-03-20",
-    link: "/projects/cv",
+    link: "https://github.com/emanuelediluzio/cv-project",
   },
   {
     slug: "distributed-coordination",
     title: "Sistema di Coordinamento Distribuito per il Trasporto di Materiali in un Magazzino",
     description: "Un sistema distribuito per la gestione efficiente del trasporto di materiali in un ambiente di magazzino",
     date: "2024-03-20",
-    link: "/projects/distributed-coordination",
+    link: "https://github.com/emanuelediluzio/Distributed-Coordination-System-for-Material-Transport-in-a-Warehouse",
   },
   {
-    slug: "emerging-technologies",
-    title: "Tracciamento delle Tecnologie Emergenti con Neo4j e BERT",
-    description: "Un sistema per il monitoraggio e l'analisi delle tecnologie emergenti utilizzando Neo4j e BERT sui dati di arXiv",
+    slug: "bachelor-thesis",
+    title: "Tesi di Laurea - Analisi e Sviluppo",
+    description: "Progetto di tesi di laurea con analisi approfondite e sviluppi innovativi",
     date: "2024-03-20",
-    link: "/projects/emerging-technologies",
+    link: "https://github.com/emanuelediluzio/BachelorThesis",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-3 ">
           {projects.map((project) => (
             <Card key={project.slug}>
-              <Link href={project.link}>
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
                 <article className="relative w-full h-full p-4 md:p-8">
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
@@ -66,11 +66,11 @@ export default function ProjectsPage() {
                   </p>
                   <div className="absolute bottom-4 md:bottom-8">
                     <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                      Leggi di più <span aria-hidden="true">&rarr;</span>
+                      Vai al repository <span aria-hidden="true">&rarr;</span>
                     </p>
                   </div>
                 </article>
-              </Link>
+              </a>
             </Card>
           ))}
         </div>
