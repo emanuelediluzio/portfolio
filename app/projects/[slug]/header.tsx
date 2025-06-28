@@ -19,9 +19,14 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 
 	const links: { label: string; href: string }[] = [];
 	if (project.repository) {
+		// Check if repository is a full URL or just a name
+		const repoUrl = project.repository.startsWith('http') 
+			? project.repository 
+			: `https://github.com/${project.repository}`;
+		
 		links.push({
 			label: "GitHub",
-			href: `https://github.com/${project.repository}`,
+			href: repoUrl,
 		});
 	}
 	if (project.url) {
@@ -67,7 +72,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 								views,
 							)}
 						</span>
-						<Link target="_blank" href="https://twitter.com/chronark_">
+						<Link target="_blank" href="https://instagram.com/emanuelediluzi0">
 							<Twitter
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting
@@ -76,7 +81,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 								} `}
 							/>
 						</Link>
-						<Link target="_blank" href="https://github.com/chronark">
+						<Link target="_blank" href="https://github.com/emanuelediluzio">
 							<Github
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting
